@@ -1,0 +1,174 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, sans-serif;
+}
+
+/*body,html {
+	height: 100%;
+	width: 100%;
+}*/
+
+body {
+	background-color: #F0F0F0;
+}
+
+h1 {
+	font-family: 'Rock Salt', cursive;
+	text-align: center;
+	padding-bottom: 50px;
+	padding-top: 20px;
+}
+
+h2 {
+	font-family: 'Vollkorn', serif;
+	font-weight: 700;
+}
+
+#nav-div {
+	text-align: center;
+	height: 50px;
+	background: #E2E2E2;
+	border: 1px solid #CCC;
+	margin: 0 auto;
+	position: static;
+}
+
+li {
+	/*margin: 0 auto;*/
+	/*float: left;*/
+	padding: 50px 15px 8px 5px;
+	display: inline;
+}
+
+ul {
+/*	height:50px;
+	border: 1px solid #ccc;
+	border-width: 1px 0;
+	list-style: none;
+	text-align: center;
+	list-style-type: none;
+	margin: 0;*/
+	padding: 25px;
+}
+
+ul#nav li a {
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-family: 'Vollkorn', serif;
+}
+
+a:hover,
+a:visited {
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.container h2 {
+	text-align: center;
+	padding-bottom: 5px;
+	text-decoration: underline;
+}
+
+.container #image {
+	float: left;
+	width: 20%;
+	text-align: center;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+  padding: 0 5px;
+}
+
+ul.share-buttons li:hover {
+	opacity: 0.5;
+}
+
+img.me {
+	width: 250px;
+	position: relative;
+	border-radius: 25px;
+	padding-bottom: 5px;
+}
+
+.container #blurb {
+	width: 50%;
+	float: left;
+
+}
+
+.container #about {
+	width: 65%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container p {
+	padding-top: 5px;
+	padding-right: 20px;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Vollkorn', serif;
+}
+
+.container #placeholder1 {
+	float: left;
+	width: 20%;
+}
+
+.container #placeholder2 {
+	float: left;
+	width: 10%;
+}
+
+
+@media(max-width: 1160px) {
+	h1 {
+		padding-bottom: 20px;
+	}
+	.container #placeholder1,
+	.container #placeholder2 {
+		width: 0;
+	}
+
+	.container #image {
+		width: 100%;
+	}
+
+	.container #blurb,
+	.container #about {
+		width: 100%;
+		text-align: center;
+	}
+
+	img.me {
+		width: 200px;
+	}
+
+	.share-buttons img {
+		width: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+@media(max-width: 450px) {
+	#nav-div {
+		height: 70px;
+	}
+}
+
+@media(max-width: 324px) {
+	#nav-div {
+		height: 70px;
+	}
+}
+
