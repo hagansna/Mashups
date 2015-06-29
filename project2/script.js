@@ -1,3 +1,4 @@
+//Main data object
 var cityWeather = {
 	ready: false,
 	animate: false,
@@ -6,24 +7,25 @@ var cityWeather = {
 };
 var clouds = [];
 var rains = [];
-// var directionExp = [1, -1];
 
+//Retrieves weather information from the OpenWeatherMap API based on specified city name
 var weatherCity = function(city) {
+	//Empty the arrays
 	clouds = [];
 	rains = [];
-	console.log(city);
-	url = 'http://api.openweathermap.org/data/2.5/weather?q=';
-	weatherURL = url + city;
+	//console.log(city);
+	var url = 'http://api.openweathermap.org/data/2.5/weather?q=';
+	var weatherURL = url + city;
 	$.ajax({
 		url: weatherURL,
 		type: 'GET',
 		dataType: 'json',
 		error: function(err) {
-			console.log(err);
+			//console.log(err);
 			cityWeather.apiData.condition = 0;
 		},
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
 			cityWeather.apiData.condition = data.weather[0].main;
 			cityWeather.apiData.currentTime = data.dt;
 			cityWeather.apiData.sunset = data.sys.sunset;
@@ -37,22 +39,30 @@ var weatherCity = function(city) {
 				cityWeather.rainBool = false;
 			}
 			// cityWeather.apiData.rain = data.rain['3h'];
-			console.log(data.dt);
-			console.log(data.sys.sunset);
-			console.log(data.sys.sunrise);
+			//console.log(data.dt);
+			//console.log(data.sys.sunset);
+			//console.log(data.sys.sunrise);
 			cityWeather.ready = true;
-			console.log(cityWeather);
+			//console.log(cityWeather);
 		}
 	});
 };
 
+var text = '';
+
+//P5 setup. Adds directions to the page and sets up canvas.
 function setup() {
 	console.log('setting up');
+	text = createDiv('<h1>Directions:</h1><p>Say "Show me the weather in..." and a city name to see a visual representation of the weather in that city.</p><p>Alternatively, pressing the spacebar shows the weather in Manhattan');
 	createCanvas(windowWidth, windowHeight);
+	text.addClass('text');
 }
 
+//P5 draw. Handles the animation drawing.
 function draw() {
+	$('.text').show();
 	if (cityWeather.apiData.condition) {
+		$('.text').hide();
 		clear();
 		if (cityWeather.apiData.condition == "Clear") {
 			if ((cityWeather.apiData.currentTime < cityWeather.apiData.sunrise && cityWeather.apiData.currentTime > cityWeather.apiData.sunset) || (cityWeather.apiData.currentTime < cityWeather.apiData.sunrise && cityWeather.apiData.currentTime < cityWeather.apiData.sunset)) {
@@ -248,25 +258,25 @@ Clouds.prototype.checkEdges = function() {
 	// }
 };
 
+//P5 window resizing
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+//Gives a default on Spacebar press
 function keyPressed() {
 	if (keyCode == 32) {
-		weatherCity('New York');
+		weatherCity('Manhattan');
 	}
 }
 
+//Sets up the listening functionality
 if (annyang) {
+	//On saying the phrase "Show me the weather in..." plus a city name, run weatherCity(city)
 	var commands = {
 		'show me the weather in *city': weatherCity
 	};
-
-  // Add our commands to annyang
 	annyang.addCommands(commands);
-
-  // Start listening.
 	annyang.start();
 }
 

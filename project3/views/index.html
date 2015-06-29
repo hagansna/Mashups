@@ -4,8 +4,8 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width">
 		<title>Soundtrack Playlist Finder</title> 
-		<link rel="stylesheet" type="text/css" href="assignment3.css" />
-		<link href='http://fonts.googleapis.com/css?family=Vollkorn:700italic,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/project3.css" />
+		<link href='https://fonts.googleapis.com/css?family=Vollkorn:700italic,400' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div id="nav-div">
@@ -28,7 +28,19 @@
 			</div>
 		</div>
 
+		<script>
+			var data = <%-JSON.stringify(data)%>;
+			var message = '<%=message%>'
+		</script>
+
+
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="assignment3.js"></script>
+		<!--<script src="popcorn-1.5.11/popcorn.js"></script>
+		<script src="popcorn-1.5.11/modules-player-popcorn.player.js"></script>
+		<script src="popcorn-1.5.11/players-youtube-popcorn.youtube.js"></script>
+		<script src="popcorn-1.5.11/wrappers-common-popcorn._MediaElementProto.js"></script>
+		<script src="popcorn-1.5.11/wrappers-youtube-popcorn.HTMLYouTubeVideoElement.js"></script>
+		<script src="popcorn-1.5.11/plugins-code-popcorn.code.js"></script> -->
+		<script src="/project3.js"></script>
 	</body>
 </html>
