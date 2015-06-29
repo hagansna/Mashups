@@ -1,3 +1,4 @@
+// add dependencies
 var express = require('express');
 var Request = require('request');
 var bodyParser = require('body-parser');
@@ -52,7 +53,7 @@ app.get("/search/:movie", function (request, response) {
 });
 
 app.get('*', function (request, response) {
-	response.send('404!!!!');
+	response.send('404!!!!!');
 });
 
 // set environment port variable
